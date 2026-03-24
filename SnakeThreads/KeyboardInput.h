@@ -7,5 +7,6 @@ private:
 public:
 	KeyboardInput(GameRunner* g);
 	void CheckInput();
+	void Run();
 };
 

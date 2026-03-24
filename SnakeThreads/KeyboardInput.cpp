@@ -1,6 +1,10 @@
 #include "KeyboardInput.h"
 #include <conio.h>
+#include <chrono>
 #include "Direction.h"
+#include <thread>
+
+using namespace std;
 
 KeyboardInput::KeyboardInput(GameRunner* g)
 {
@@ -35,5 +39,16 @@ void KeyboardInput::CheckInput()
 			game->SetDirection(Direction::RIGHT);
 			break;
 		}
+	}
+}
+
+void KeyboardInput::Run()
+{
+	while (true)
+	{
+		CheckInput();
+
+		this_thread::sleep_for(chrono::milliseconds(20));
+
 	}
 }

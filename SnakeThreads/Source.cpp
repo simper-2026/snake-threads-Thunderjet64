@@ -11,12 +11,18 @@ int main() {
 	GameRunner game;
 	KeyboardInput input(&game);
 
-	while (true) {
+	
+	thread inputThread(&KeyboardInput::Run, &input);
 
-		input.CheckInput();
+		//input.CheckInput();
+		
+	while (true)
+	{
 		game.Tick();
-
 		this_thread::sleep_for(chrono::milliseconds(200));
-
 	}
+
+	inputThread.join();
+
+	
 }
