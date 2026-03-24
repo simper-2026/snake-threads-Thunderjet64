@@ -1,6 +1,8 @@
 #include "GameRunner.h"
 #include <iostream>
 #include <windows.h>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -71,4 +73,13 @@ void GameRunner::Tick()
 void GameRunner::SetDirection(Direction d)
 {
 	playerDirection = d;
+}
+
+void GameRunner::Run()
+{
+	while (true)
+	{
+		Tick();
+		this_thread::sleep_for(chrono::milliseconds(200));
+	}
 }

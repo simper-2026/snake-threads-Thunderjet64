@@ -14,5 +14,6 @@ public:
 	GameRunner();
 	void Tick();
 	void SetDirection(Direction d);
+	void Run();
 };
 
