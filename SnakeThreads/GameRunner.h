@@ -11,6 +11,10 @@ private:
 	std::atomic<Direction> playerDirection;
 	GameState state;
 	std::atomic<bool> _isRunning;
+	GameState buffer[2];
+	GameState* current;
+	GameState* next;
+
 public:
 	GameRunner();
 	void Tick();
