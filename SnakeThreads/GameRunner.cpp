@@ -35,6 +35,8 @@ GameRunner::GameRunner()
 	playerDirection = Direction::RIGHT;
 	player = { 10, 0 };
 
+	_isRunning = true;
+
 	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 	CONSOLE_CURSOR_INFO cursorInfo;
 	GetConsoleCursorInfo(hConsole, &cursorInfo);
@@ -77,9 +79,19 @@ void GameRunner::SetDirection(Direction d)
 
 void GameRunner::Run()
 {
-	while (true)
+	while (_isRunning)
 	{
 		Tick();
 		this_thread::sleep_for(chrono::milliseconds(200));
 	}
+}
+
+void GameRunner::Quit()
+{
+	_isRunning = false;
+}
+
+bool GameRunner::IsRunning()
+{
+	return _isRunning;
 }
