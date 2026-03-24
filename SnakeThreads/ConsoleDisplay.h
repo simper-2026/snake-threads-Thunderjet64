@@ -1,5 +1,6 @@
 #pragma once
 #include "GameRunner.h"
+#include "GameState.h"
 class ConsoleDisplay
 {
 private:

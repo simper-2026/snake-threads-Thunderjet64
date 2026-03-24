@@ -2,15 +2,15 @@
 #include "Direction.h"
 #include <atomic>
 #include "Point.h"
+#include "GameState.h"
 
 
 class GameRunner
 {
 private:
 	std::atomic<Direction> playerDirection;
-	Point player;
+	GameState state;
 	std::atomic<bool> _isRunning;
-	void DrawBoard();
 public:
 	GameRunner();
 	void Tick();
@@ -18,6 +18,6 @@ public:
 	void Run();
 	void Quit();
 	bool IsRunning();
-	Point GetBuffer();
+	GameState GetBuffer();
 };
 

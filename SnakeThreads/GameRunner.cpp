@@ -6,34 +6,9 @@
 
 using namespace std;
 
-void GameRunner::DrawBoard()
-{
-	//COORD coord = { 0, 0 };
-	//SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
-	//
-	//for (int x = -1; x < 20; x++) {
-	//	for (int y = -1; y < 20; y++) {
-	//		if (x == player.X && y == player.Y) {
-	//			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
-	//			std::cout << "O";
-	//		}
-	//		else if (x == -1 || x == 19 || y == -1 || y == 19) {
-	//			SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 13);
-	//			std::cout << "#";
-	//		}
-	//		else {
-	//			
-	//			std::cout << " ";
-	//		}
-	//	}
-	//	std::cout << endl;
-	//}
-}
-
 GameRunner::GameRunner()
 {
 	playerDirection = Direction::RIGHT;
-	player = { 10, 0 };
 
 	_isRunning = true;
 
@@ -52,23 +27,21 @@ void GameRunner::Tick()
 	switch (playerDirection)
 	{
 	case Direction::UP:
-		player.X--;
+		state.player.X--;
 		break;
 	case Direction::DOWN:
-		player.X++;
+		state.player.X++;
 		break;
 	case Direction::LEFT:
-		player.Y--;
+		state.player.Y--;
 		break;
 	case Direction::RIGHT:
-		player.Y++;
+		state.player.Y++;
 		break;
 	case Direction::NONE:
 	default:
 		break;
 	}
-
-	DrawBoard();
 }
 
 
@@ -96,7 +69,7 @@ bool GameRunner::IsRunning()
 	return _isRunning;
 }
 
-Point GameRunner::GetBuffer()
+GameState GameRunner::GetBuffer()
 {
-	return player;
+	return state;
 }

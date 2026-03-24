@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="ConsoleDisplay.cpp" />
     <ClCompile Include="GameRunner.cpp" />
+    <ClCompile Include="GameState.cpp" />
     <ClCompile Include="KeyboardInput.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="ConsoleDisplay.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="GameRunner.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="KeyboardInput.h" />
     <ClInclude Include="Point.h" />
   </ItemGroup>

@@ -3,19 +3,18 @@
 #include <chrono>
 #include <windows.h>
 #include <iostream>
-
 using namespace std;
 
 void ConsoleDisplay::DrawBoard()
 {
-	Point player = game->GetBuffer();
+	auto state = game->GetBuffer();
 
 	COORD coord = { 0, 0 };
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 
-	for (int x = -1; x < 20; x++) {
-		for (int y = -1; y < 20; y++) {
-			if (x == player.X && y == player.Y) {
+	for (int x = -1; x < state.GetBoardSize(); x++) {
+		for (int y = -1; y < state.GetBoardSize(); y++) {
+			if (x == state.player.X && y == state.player.Y) {
 				SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
 				std::cout << "O";
 			}
